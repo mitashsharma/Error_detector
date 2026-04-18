@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGuard | Interactive Error Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <span>CodeGuard</span>
+        </div>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero">
+            <h1>Detect Errors in <span class="gradient-text">Real-Time</span></h1>
+            <p>Paste your code below and let CodeGuard find the bugs for you. Supporting Python, C, C++, and Java.</p>
+        </header>
+
+        <section class="detector-card glass">
+            <div class="card-header">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="python">Python</button>
+                    <button class="lang-btn" data-lang="c">C</button>
+                    <button class="lang-btn" data-lang="cpp">C++</button>
+                    <button class="lang-btn" data-lang="java">Java</button>
+                </div>
+                <div class="window-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+            </div>
+            <div class="editor-container">
+                <textarea id="code-editor" placeholder="Paste your code here..."></textarea>
+            </div>
+            <div class="card-footer">
+                <button id="check-btn" class="primary-btn">
+                    <i class="fas fa-bolt"></i> Check for Errors
+                </button>
+            </div>
+        </section>
+
+        <section id="result-section" class="result-card glass hidden">
+            <div class="result-header">
+                <h3>Analysis Result</h3>
+                <button id="close-result" class="close-btn">&times;</button>
+            </div>
+            <div id="result-content" class="result-body">
+                <!-- Results will be injected here -->
+            </div>
+        </section>
+
+        <section class="support-section">
+            <div class="support-grid">
+                <div class="support-form-card glass">
+                    <h3><i class="fas fa-headset"></i> Support System</h3>
+                    <p>Have a question or found a bug? Send us a message!</p>
+                    <form id="support-form">
+                        <div class="form-group">
+                            <input type="text" id="support-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="support-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="support-message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="secondary-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="tickets-card glass">
+                    <h3><i class="fas fa-history"></i> Recent Queries</h3>
+                    <div id="tickets-list" class="tickets-list">
+                        <p class="loading-text">Loading queries...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 CodeGuard AI. Built with <i class="fas fa-heart"></i> and Flask.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
