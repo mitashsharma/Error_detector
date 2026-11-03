@@ -68,8 +68,8 @@ codeguard/
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/codeguard.git
-cd codeguard
+git clone https://github.com/mitashsharma/Error_Detector.git
+cd Error_Detector
 ```
 
 ### 2. Create virtual environment
